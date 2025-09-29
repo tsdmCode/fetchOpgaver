@@ -13,7 +13,7 @@ fetch(myDataFileUrl)
         .then((data) => {
         storyData = data;
         console.log(storyData)
-        myStoryElement.innerHTML = storyData.DK.headline + "<br><br>" + storyData.DK.text + "<br><br>" + `<img src="../../opgavefiler/img/felix.jpg" alt="kodekatten Felix"></img>`;
+        myStoryElement.innerHTML = storyData.DK.headline + "<br><br>" + storyData.DK.text + "<br><br>" + `<img src="../../opgavefiler/img/${Math.random() > 0.5 ? "felix" : "cat"}.jpg" alt="kodekatten Felix"></img>`;
         })
         .catch((error) => {
         console.error(error);
@@ -61,7 +61,6 @@ const myUserlistElement = document.getElementById("userList");
 const getUsers = async () => { 
 
     try {
-
         const response = await fetch(userURI);
         const data = await response.json()
         console.log("userData", data)
@@ -94,7 +93,8 @@ const myDog = document.getElementById("theDog");
 const myDogUrl = "https://dog.ceo/api/breeds/image/random";
 
 fetch(myDogUrl)
-    .then(response => response.json())
+    .then(
+        (response) => response.json())
     .then(data => {
         myDog.innerHTML = `<img src="${data.message}" alt="en hund">`;
     })

@@ -18,3 +18,7 @@ du må erne style din message :)
 #theStory h2 {
   font-size: 4rem;
 }
+
+#theDog img {
+  object-fit: contain;
+}
